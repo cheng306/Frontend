@@ -2,13 +2,13 @@ import { Component } from '@angular/core'
 import { WebService } from './web.service'
 
 @Component({
-    selector: 'messages',
+    selector: 'messagess',
     template: `
-        <div *ngFor="let message of messages"> 
+        <div *ngFor="let message of messagess"> 
        
            
-           {{message.owner}}
-           {{message.text}}
+           {{message.owner}} says
+           {{message.text}} at
            
         </div>
     `
@@ -18,8 +18,8 @@ export class MessagesComponent {
     
         async ngOnInit() {
             var response = await this.webService.getMessages();
-            this.messages = response.json();
+            this.messagess = response.json();
         }
     
-        messages = [];
+        messagess = [];
 }
