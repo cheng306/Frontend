@@ -4,5 +4,17 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
-    background: #eeeeee
+    background: grey;
+}
+
+.messagebox{
+    margin: 5px;
+    background-color: black;
+    color:white;
+}
+
+.createmessage{
+    margin: 5px;
+    background-color: rgb(27, 13, 230);
+    color:white;
 }
