@@ -1,20 +1,16 @@
-import { Component, ViewChild } from '@angular/core';
-import { MessagesComponent } from './messages.component';
-import {CreateMessageComponent} from './createmessage.component';
+import { Component} from '@angular/core';
+import {TransfersComponent } from './transfers.component';
+import {CreateTransferComponent} from './createtransfer.component';
 
 @Component({
   selector: 'app-root',
   template: 
   `
-    <h1>Your Text Message here</h1> 
-    <div><messages></messages></div>
-    <createmessage (onPosted1)="onPosted2($event)"></createmessage>
+    <h1>Your Transfer Here</h1> 
+    <div><transfers></transfers></div>
+    <createtransfer></createtransfer>
   `,
 })
 export class AppComponent  {
-  @ViewChild(MessagesComponent) messages : MessagesComponent;
 
-  onPosted2(message) {
-    this.messages.messages.push(message);
-  }
  }

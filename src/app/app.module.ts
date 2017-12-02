@@ -5,8 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
-import { MessagesComponent } from './messages.component';
-import {CreateMessageComponent} from './createmessage.component'
+import { TransfersComponent } from './transfers.component';
+import {CreateTransferComponent} from './createtransfer.component'
 import { AppComponent } from './app.component';
 import { WebService } from './web.service';
 
@@ -14,7 +14,7 @@ import { WebService } from './web.service';
 
 @NgModule({
   imports: [ BrowserModule, HttpModule, BrowserAnimationsModule,FormsModule],
-  declarations: [ AppComponent, MessagesComponent, CreateMessageComponent ],  
+  declarations: [ AppComponent, TransfersComponent, CreateTransferComponent ],  
   bootstrap: [AppComponent],
   providers: [WebService ]
 })
