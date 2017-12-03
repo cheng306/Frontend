@@ -4,14 +4,14 @@ import {CreateTransferComponent} from './createtransfer.component';
 import {NavBarComponent} from './navbar.component'
 
 @Component({
-  selector: 'app-root',
+  selector: 'bodypanel',
   template: 
   `
     
-    <div class="navbar"><navbar></navbar></div>
-    <div><router-outlet></router-outlet></div>
+    <div><transfers></transfers></div>
+    <createtransfer></createtransfer>
   `,
 })
-export class AppComponent  {
+export class BodyPanelComponent  {
 
  }
