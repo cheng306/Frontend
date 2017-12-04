@@ -5,10 +5,13 @@ import { Component } from '@angular/core'
     template: 
     `
         <ul>
-        <li><button routerLink="/home">Home</button></li>
-        <li><button routerLink="/transfermoney">Transfer</button></li>
-        <li><button routerLink="/records">Records</button></li>
-        <li><button routerLink="/home">About</button></li>
+
+            <li><button routerLink="/home">Home</button></li>
+
+            <li><button routerLink="/transfermoney">Transfer</button></li>
+
+            <li><button routerLink="/records">Records</button></li>
+    
         </ul>       
     `
 })

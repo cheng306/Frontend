@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
     selector: 'transfers',
     template: `
-        <div *ngFor="let transfer of webService.transfersList"> 
+        <div *ngFor="let transfer of webService.transfersList | async"> 
        
            <div class="messagebox" >
             <button [routerLink]="['/records', transfer.sender]" >{{transfer.sender}}</button> sends
@@ -17,12 +17,14 @@ import { ActivatedRoute } from '@angular/router';
     `
 })
 export class TransfersComponent {
-    constructor(private webService : WebService,private route: ActivatedRoute) {
-        
-    }
+
+    transfers;
+
+    constructor(private webService : WebService,private route: ActivatedRoute) {}
 
     ngOnInit(){
-        console.log(this.route.snapshot.params.sender);
+        var sender = this.route.snapshot.params.sender;
+        this.webService.getTransfers(sender);
     }
         
     

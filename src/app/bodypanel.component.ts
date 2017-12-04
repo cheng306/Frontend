@@ -7,8 +7,8 @@ import {NavBarComponent} from './navbar.component'
   selector: 'bodypanel',
   template: 
   `
-    
     <div><transfers></transfers></div>
+    
     <createtransfer></createtransfer>
   `,
 })

@@ -8,9 +8,7 @@ import { WebService } from './web.service'
         <div>
             <input  [(ngModel)]="transfer.sender" placeholder="Receiver"><br>
         
-        
             <input [(ngModel)]="transfer.amount" type="number" placeholder="Amount"><br>
-        
         
             <button (click)="post()">POST</button>
         </div>
