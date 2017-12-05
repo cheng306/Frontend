@@ -9,10 +9,12 @@ import { RouterModule } from '@angular/router';
 import { TransfersComponent } from './transfers.component';
 import {CreateTransferComponent} from './createtransfer.component'
 import { AppComponent } from './app.component';
-import { WebService } from './web.service';
 import {NavBarComponent} from './navbar.component'
 import {BodyPanelComponent} from './bodypanel.component'
 import {RegisterComponent} from './register.component'
+
+import { WebService } from './web.service';
+import {AuthenticateService} from './authenticate.service'
 
 var paths = [
   {path: '', component: BodyPanelComponent}
@@ -28,6 +30,6 @@ var paths = [
   imports: [ BrowserModule, HttpModule, BrowserAnimationsModule,FormsModule, ReactiveFormsModule, RouterModule.forRoot(paths)],
   declarations: [ AppComponent, TransfersComponent, CreateTransferComponent, NavBarComponent,BodyPanelComponent,RegisterComponent ],  
   bootstrap: [AppComponent],
-  providers: [WebService ]
+  providers: [WebService, AuthenticateService]
 })
 export class AppModule { }

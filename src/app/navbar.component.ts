@@ -11,6 +11,8 @@ import { Component } from '@angular/core'
             <li><button routerLink="/transfermoney">Transfer</button></li>
 
             <li><button routerLink="/records">Records</button></li>
+
+            <li><button routerLink="/register">Register</button></li>
     
         </ul>       
     `

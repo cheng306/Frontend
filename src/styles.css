@@ -38,3 +38,5 @@ button{
 .form input {
     margin:10px;    
 }
+
+.error {background-color: #ffff00}
