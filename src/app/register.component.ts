@@ -9,6 +9,10 @@ import { AuthenticateService } from './authenticate.service';
     `
     <div class="form">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <input placeholder="Username" formControlName="userName"
+        [ngClass]="{'error': form.controls.userName.invalid}"><br>
+
         <input placeholder="First Name" formControlName="firstName"
         [ngClass]="{'error': form.controls.firstName.invalid}"><br>
 
@@ -30,6 +34,7 @@ import { AuthenticateService } from './authenticate.service';
         <span *ngIf="form.errors?.passwordMismatch">Passwords has to match!!!</span><br>
 
         <button>Register</button>
+        
     </form>
     </div>
     `,
@@ -40,6 +45,7 @@ export class RegisterComponent {
 
     constructor(private fb: FormBuilder, private auth: AuthenticateService){
         this.form = fb.group({
+            userName: ['', Validators.required],
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             phone: ['', Validators.required],
@@ -52,7 +58,7 @@ export class RegisterComponent {
 
     onSubmit() {
         //console.log(this.form.value);
-        //this.auth.register(this.form.value);
+        this.auth.register(this.form.value);
         console.log(this.form.value);
     }
 }

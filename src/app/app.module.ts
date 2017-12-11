@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { MdButtonModule, MdCardModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -11,7 +10,8 @@ import {CreateTransferComponent} from './createtransfer.component'
 import { AppComponent } from './app.component';
 import {NavBarComponent} from './navbar.component'
 import {BodyPanelComponent} from './bodypanel.component'
-import {RegisterComponent} from './register.component'
+import { RegisterComponent } from './register.component'
+import { LoginComponent } from './login.component'
 
 import { WebService } from './web.service';
 import {AuthenticateService} from './authenticate.service'
@@ -23,12 +23,13 @@ var paths = [
   ,{path: 'records/:sender', component: TransfersComponent}
   ,{path: 'home', component: BodyPanelComponent}
   ,{path: 'register', component: RegisterComponent}
+  ,{path: 'login', component: LoginComponent}
 
 ];
 
 @NgModule({
   imports: [ BrowserModule, HttpModule, BrowserAnimationsModule,FormsModule, ReactiveFormsModule, RouterModule.forRoot(paths)],
-  declarations: [ AppComponent, TransfersComponent, CreateTransferComponent, NavBarComponent,BodyPanelComponent,RegisterComponent ],  
+  declarations: [ AppComponent, TransfersComponent, CreateTransferComponent, NavBarComponent,BodyPanelComponent,RegisterComponent, LoginComponent],  
   bootstrap: [AppComponent],
   providers: [WebService, AuthenticateService]
 })
