@@ -10,7 +10,7 @@ import {AuthenticateService} from './authenticate.service'
 
             <li><button routerLink="/home">Home</button></li>
 
-            <li><button routerLink="/transfermoney">Transfer</button></li>
+            <li><button *ngIf="auth.isAuthenticated" routerLink="/transfermoney">Transfer</button></li>
 
             <li><button routerLink="/records">Records</button></li>
 

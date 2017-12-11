@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
        
            <div class="messagebox" >
             <button [routerLink]="['/records', transfer.sender]" >{{transfer.sender}}</button> sends
-            {{transfer.amount}} at
+            {{transfer.amount}} to {{transfer.receiver}}
            </div>
 
            

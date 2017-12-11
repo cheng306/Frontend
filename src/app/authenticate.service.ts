@@ -5,9 +5,11 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthenticateService {
 
-    token = 'token'
-    firstName = 'firstname';
-    lastName = 'lastname'
+    tokenKey = 'Token'
+    firstNameKey = 'FirstName';
+    lastNameKey = 'LastName'
+    userNameKey = 'UserName';
+    
 
     constructor(private http: Http, private router: Router) {}
 
@@ -19,9 +21,13 @@ export class AuthenticateService {
 
                 if( !responseJson.token ){return;}
 
-                localStorage.setItem(this.token, responseJson.token);
-                localStorage.setItem(this.firstName, responseJson.firstName);
-                localStorage.setItem(this.lastName, responseJson.lastName);
+                localStorage.setItem(this.tokenKey, responseJson.token);
+                localStorage.setItem(this.firstNameKey, responseJson.firstName);
+                localStorage.setItem(this.lastNameKey, responseJson.lastName);
+                localStorage.setItem(this.userNameKey, responseJson.userName);
+
+                console.log(response);
+                console.log(responseJson);
 
                 this.router.navigate(['/']);
                 
@@ -31,7 +37,7 @@ export class AuthenticateService {
     }
 
     get isAuthenticated() {
-        if (!localStorage.getItem(this.token)){
+        if (!localStorage.getItem(this.tokenKey)){
             return false;
         }
         return true;
@@ -39,13 +45,18 @@ export class AuthenticateService {
     }
 
     get fullName() {
-        return localStorage.getItem(this.firstName) + " "+ localStorage.getItem(this.lastName);
+        return localStorage.getItem(this.firstNameKey) + " "+ localStorage.getItem(this.lastNameKey);
+    }
+
+    get userName(){
+        return localStorage.getItem(this.userNameKey);
     }
 
     logout() {
-        localStorage.removeItem(this.token);
-        localStorage.removeItem(this.firstName);
-        localStorage.removeItem(this.lastName);
+        localStorage.removeItem(this.tokenKey);
+        localStorage.removeItem(this.firstNameKey);
+        localStorage.removeItem(this.lastNameKey);
+        localStorage.removeItem(this.userNameKey);
     }
 
     login(loginInfo){
@@ -54,13 +65,17 @@ export class AuthenticateService {
             
             //if (!responseJson.token){console.log(responseJson);console.log(response);};
     
-            localStorage.setItem(this.token, responseJson.token);
-            localStorage.setItem(this.firstName, responseJson.firstName);
-            localStorage.setItem(this.lastName, responseJson.lastName);
+            localStorage.setItem(this.tokenKey, responseJson.token);
+            localStorage.setItem(this.firstNameKey, responseJson.firstName);
+            localStorage.setItem(this.lastNameKey, responseJson.lastName);
+            localStorage.setItem(this.userNameKey, responseJson.userName);
+
+            console.log(response);
+            console.log(responseJson);
+
             this.router.navigate(['/']);},
             error =>{
-                loginInfo.success =false;
-                
+                loginInfo.success =false;            
             }
 
         )
