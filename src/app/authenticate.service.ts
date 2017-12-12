@@ -13,29 +13,6 @@ export class AuthenticateService {
 
     constructor(private http: Http, private router: Router) {}
 
-    register(user) {
-        delete user.confirmPassword;
-        this.http.post('http://localhost:56266/api/authenticate/register', user).subscribe(
-            response => {
-                var responseJson = response.json();
-
-                if( !responseJson.token ){return;}
-
-                localStorage.setItem(this.tokenKey, responseJson.token);
-                localStorage.setItem(this.firstNameKey, responseJson.firstName);
-                localStorage.setItem(this.lastNameKey, responseJson.lastName);
-                localStorage.setItem(this.userNameKey, responseJson.userName);
-
-                console.log(response);
-                console.log(responseJson);
-
-                this.router.navigate(['/']);
-                
-
-            }
-        );
-    }
-
     get isAuthenticated() {
         if (!localStorage.getItem(this.tokenKey)){
             return false;
@@ -52,11 +29,27 @@ export class AuthenticateService {
         return localStorage.getItem(this.userNameKey);
     }
 
-    logout() {
-        localStorage.removeItem(this.tokenKey);
-        localStorage.removeItem(this.firstNameKey);
-        localStorage.removeItem(this.lastNameKey);
-        localStorage.removeItem(this.userNameKey);
+    register(user) {
+        delete user.confirmPassword;
+        this.http.post('http://backend20171129020828.azurewebsites.net/api/authenticate/register', user).subscribe(
+            response => {
+                var responseJson = response.json();
+
+                if( !responseJson.token ){return;}
+
+                localStorage.setItem(this.tokenKey, responseJson.token);
+                localStorage.setItem(this.firstNameKey, responseJson.firstName);
+                localStorage.setItem(this.lastNameKey, responseJson.lastName);
+                localStorage.setItem(this.userNameKey, responseJson.userName);
+
+                // for debug purpose
+                // console.log(response);
+                // console.log(responseJson);
+
+                this.router.navigate(['/']);
+
+            }
+        );
     }
 
     login(loginInfo){
@@ -70,16 +63,26 @@ export class AuthenticateService {
             localStorage.setItem(this.lastNameKey, responseJson.lastName);
             localStorage.setItem(this.userNameKey, responseJson.userName);
 
-            console.log(response);
-            console.log(responseJson);
+            // for debug purpose
+            // console.log(response);
+            // console.log(responseJson);
 
             this.router.navigate(['/']);},
+            //loginInfo.success is for checking if login succeed
             error =>{
                 loginInfo.success =false;            
             }
 
         )
     }
+
+    logout() {
+        localStorage.removeItem(this.tokenKey);
+        localStorage.removeItem(this.firstNameKey);
+        localStorage.removeItem(this.lastNameKey);
+        localStorage.removeItem(this.userNameKey);
+    }
+
 
 
 }

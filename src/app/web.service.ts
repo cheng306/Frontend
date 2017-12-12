@@ -18,7 +18,7 @@ export class WebService {
     /*
     async getTransfers() {
         
-        var response = await this.http.get('http://localhost:56266/api/transfers').toPromise();
+        var response = await this.http.get('http://backend20171129020828.azurewebsites.net/api/transfers').toPromise();
         this.transfersList = response.json();
         console.log("get");     
     }

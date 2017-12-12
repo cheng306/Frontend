@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
     template: `
         <div *ngFor="let transfer of webService.transfersList | async"> 
        
-           <div class="messagebox" >
+           <div class="transferbox" >
             <button [routerLink]="['/records', transfer.sender]" >{{transfer.sender}}</button> sends
             {{transfer.amount}} to {{transfer.receiver}}
            </div>
