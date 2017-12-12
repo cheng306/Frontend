@@ -16,6 +16,7 @@ import { LoginComponent } from './login.component'
 import { WebService } from './web.service';
 import {AuthenticateService} from './authenticate.service'
 
+//array of path
 var paths = [
   {path: '', component: BodyPanelComponent}
   ,{path: 'transfermoney', component: CreateTransferComponent}
@@ -24,7 +25,6 @@ var paths = [
   ,{path: 'home', component: BodyPanelComponent}
   ,{path: 'register', component: RegisterComponent}
   ,{path: 'login', component: LoginComponent}
-
 ];
 
 @NgModule({

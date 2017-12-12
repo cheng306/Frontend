@@ -1,3 +1,11 @@
+# URL of the application
+http://comp586frontend.azurewebsites.net
+
+# api 
+http://backend20171129020828.azurewebsites.net/api/transfers
+http://backend20171129020828.azurewebsites.net/api/authenticate/register
+
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.

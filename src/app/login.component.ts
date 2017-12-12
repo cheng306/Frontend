@@ -17,7 +17,7 @@ import { AuthenticateService } from './authenticate.service';
 })
 export class LoginComponent {
     constructor(private auth:  AuthenticateService) { }
-
+    
     loginInfo = { username: '', password: '', success:true};
 
     login() {

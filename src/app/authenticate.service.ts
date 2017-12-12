@@ -36,7 +36,8 @@ export class AuthenticateService {
                 var responseJson = response.json();
 
                 if( !responseJson.token ){return;}
-
+                
+                //store token, firstname, lastname, username in local storage after register
                 localStorage.setItem(this.tokenKey, responseJson.token);
                 localStorage.setItem(this.firstNameKey, responseJson.firstName);
                 localStorage.setItem(this.lastNameKey, responseJson.lastName);
@@ -55,9 +56,8 @@ export class AuthenticateService {
     login(loginInfo){
         this.http.post('http://backend20171129020828.azurewebsites.net/api/authenticate/login', loginInfo).subscribe(response =>  {
             var responseJson = response.json();
-            
-            //if (!responseJson.token){console.log(responseJson);console.log(response);};
-    
+
+            //store token, firstname, lastname, username in local storage after login
             localStorage.setItem(this.tokenKey, responseJson.token);
             localStorage.setItem(this.firstNameKey, responseJson.firstName);
             localStorage.setItem(this.lastNameKey, responseJson.lastName);
@@ -76,7 +76,9 @@ export class AuthenticateService {
         )
     }
 
+    
     logout() {
+        //remove all loaclstorage when logout
         localStorage.removeItem(this.tokenKey);
         localStorage.removeItem(this.firstNameKey);
         localStorage.removeItem(this.lastNameKey);

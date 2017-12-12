@@ -24,11 +24,11 @@ export class CreateTransferComponent {
         amount: 0
     }
 
-    post() {
-        console.log(this.transfer.sender);
+    //use webservice to add a new ransfer
+    post() {      
         this.transfer.sender = this.auth.userName;
         this.webService.postTransfer(this.transfer);
-        console.log(this.transfer);
+
     }
     
         
