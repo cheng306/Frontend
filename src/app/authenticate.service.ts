@@ -53,7 +53,7 @@ export class AuthenticateService {
     }
 
     login(loginInfo){
-        this.http.post('http://localhost:56266/api/authenticate/login', loginInfo).subscribe(response =>  {
+        this.http.post('http://backend20171129020828.azurewebsites.net/api/authenticate/login', loginInfo).subscribe(response =>  {
             var responseJson = response.json();
             
             //if (!responseJson.token){console.log(responseJson);console.log(response);};

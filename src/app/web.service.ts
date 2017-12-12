@@ -27,7 +27,7 @@ export class WebService {
     getTransfers(sender) {
         
         sender = (sender) ? '/' + sender : '';
-        this.http.get('http://localhost:56266/api/transfers' + sender).subscribe(
+        this.http.get('http://backend20171129020828.azurewebsites.net/api/transfers' + sender).subscribe(
             response => {
                 this.internalTransfersList = response.json();
                 this.transfersSubject.next(this.internalTransfersList);
@@ -38,7 +38,7 @@ export class WebService {
     }
 
     async postTransfer(transfer) {
-        var response = await this.http.post('http://localhost:56266/api/transfers', transfer).toPromise();
+        var response = await this.http.post('http://backend20171129020828.azurewebsites.net/api/transfers', transfer).toPromise();
         this.internalTransfersList.push(response.json());
         this.transfersSubject.next(this.internalTransfersList);
         //console.log("pushed");
